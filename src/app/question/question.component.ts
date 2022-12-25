@@ -26,12 +26,18 @@ export class QuestionComponent implements OnInit {
     this.getAllQuestions();
     this.startCounter();
   }
+  // getAllQuestions() {
+  //   this.questionService.getQuestionJson()
+  //     .subscribe(res => {
+  //       this.questionList = res.questions;
+  //     })
+  // }
+  
   getAllQuestions() {
-    this.questionService.getQuestionJson()
-      .subscribe(res => {
-        this.questionList = res.questions;
-      })
+    this.questionService.getQuestionsFromApi()
+      .subscribe(res=>this.questionList=res.data)
   }
+
   nextQuestion() {
     this.currentQuestion++;
   }
